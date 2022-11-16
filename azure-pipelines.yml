@@ -4,7 +4,8 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
 
 trigger:
-- main
+  - main
+  - releases/*
 
 pool:
   vmImage: $(imageName)
@@ -16,7 +17,7 @@ strategy:
     jdk11:
      jdkVersionOption: $(jdkVersion)
   maxParallel: 2
-  
+
 steps:
 - task: Maven@3
   inputs:
